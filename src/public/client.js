@@ -16,13 +16,44 @@ const render = async (root, state) => {
 };
 
 const App = (state) => {
-  let { rovers, apod } = state;
+  if (state.get("currentRover") === "none") {
+    return `
+            <header>
+                <div class="navbar-flex">
+                    <div class="logo-flex" onclick="handleHome(event)">
+                        <p>Mars Dashboard</p>
+                    </div>
+                </div>
+            </header>
 
-  return `
-        <header></header>
-        <main></main>
-        <footer></footer>
-    `;
+                <div class="wrapper-buttons">
+                    <h1 class="main-title">Choose your rover</h1>		
+                    <div class="button-container">${renderMenu(state)}</div>
+                </div>
+            </div>
+            <footer>
+            <footer>
+        `;
+  } else {
+    return `
+        <header>
+            <div class="navbar-flex">
+                <div class="logo-flex" onclick="handleHome(event)">
+                    <p>Mars Dashboard</p>
+                 </div>
+                 <ul class="items-navbar">${renderMenuItems(state)}<ul>
+            </div>
+        </header>
+            <div class="container-info">
+                <h1 class="title">Choose your rover <span>${
+                  state.get("currentRover").latest_photos[0].rover.name
+                }</span></h1>		
+                <div class="gallery">${renderImages(state)}</div>
+            </div>
+            <footer>
+            <footer>
+        `;
+  }
 };
 
 window.addEventListener("load", () => {
