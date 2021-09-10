@@ -193,16 +193,46 @@ footer {
 
 @media (min-width: 768px) {
   /* use mobile */
+  .flex-item a {
+    font-size: 1.3rem;
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+
+  .flex-item {
+    flex: 0 calc(33% - 4%);
+    margin: 4% 1%;
+  }
+
+  .container {
+    padding: 30% 7%;
+  }
+
+  .logo-flex p {
+    font-size: 1.6rem;
+  }
+
+  .items-navbar a {
+    font-size: 1.2rem;
+  }
 }
 
 /* -------------------  DESKTOP  -------------------- */
 
 @media (min-width: 1224px) {
   /* use mobile */
+  .container {
+    max-width: 960px;
+  }
 }
 
 /* -------------------  LARGE SCREENS  -------------- */
 
 @media (min-width: 1824px) {
   /* use mobile */
+  .gallery {
+    grid-gap: 12px;
+  }
 }
