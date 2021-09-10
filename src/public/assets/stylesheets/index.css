@@ -6,25 +6,26 @@ body {
   background: #000000;
   background-size: cover;
   color: #fff;
-  font-family: "Monoton", cursive;
+  font-family: "Monoton", sans-serif;
+  background-image: url("../mars.png");
   min-height: 100vh;
 }
 
 h1 {
   margin: 0;
   font-family: "Monoton", sans-serif;
-  font-size: 1.5rem;
+  font-size: 3rem;
   font-weight: 400;
   text-align: center;
 }
 
 h2,
 h3 {
-  font-family: "Monoton", cursive;
+  font-family: "Monoton", sans-serif;
 }
 
 a {
-  font-size: 1.5rem;
+  font-size: 1rem;
   text-decoration: none;
 }
 
@@ -34,11 +35,12 @@ main {
 
 header {
   display: flex;
+  background-color: #24212e;
 }
 
 footer {
   display: flex;
-  background-color: #f0eeee;
+  background-color: #24212e;
 }
 
 .main-flex {
@@ -68,9 +70,9 @@ footer {
 }
 
 .logo-flex p {
-  color: #fff;
+  color: #ff4242;
   font-family: "Monoton", cursive;
-  font-size: 0.8rem;
+  font-size: 1rem;
   padding: 0 0.3rem;
 }
 
@@ -111,17 +113,20 @@ footer {
 }
 
 .wrapper {
-  background-color: #f2f6f9;
-  color: #0a0b3a;
+  background-color: #a2a4b5;
+  color: #162945;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
 }
 
 .wrapper-info {
   padding: 1rem;
+  font-family: "Azeret Mono", monospace;
+  color: #000000;
 }
 
 .wrapper-info span {
-  color: #28aba4;
+  color: #b53b3b;
+  font-family: "Azeret Mono", monospace;
   font-weight: 600;
 }
 
@@ -137,6 +142,7 @@ footer {
 
 .wrapper-buttons {
   border-radius: 0.5%;
+  background-color: rgb(64 61 61 / 45%);
 }
 
 .container-info {
@@ -146,10 +152,41 @@ footer {
 }
 
 .btn {
-  box-shadow: 0 1px 1px #fff(34, 34, 34, 0.1);
-  border-radius: 5em;
-  color: #fff;
+  background-color: #a2a4b5;
+  box-shadow: 0 1px 1px #2222221a;
+  border-radius: 2em;
+  color: #000000;
   transition: ease 0.3s all;
+}
+
+.btn:hover {
+  background: #d8d9e4;
+  color: rgb(66, 65, 69);
+  cursor: pointer;
+}
+
+.flex {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.flex-item {
+  flex: 1 1 calc(100% - 4%);
+  padding: 8%;
+  margin: 4% 2%;
+  text-align: center;
+}
+
+.credits,
+.credits a {
+  color: #6f777c;
+  font-size: 0.6rem;
+  text-align: center;
+}
+
+.credits {
+  padding: 2rem;
 }
 
 /* -------------------  TABLET  --------------------- */
