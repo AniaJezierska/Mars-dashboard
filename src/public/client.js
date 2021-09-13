@@ -1,13 +1,14 @@
-let store = {
-  user: { name: "Student" },
+let store = Immutable.Map({
+  user: Immutable.Map({ name: "Student" }),
   apod: "",
-  rovers: ["Curiosity", "Opportunity", "Spirit"],
-};
+  rovers: Immutable.List(["curiosity", "opportunity", "spirit"]),
+  currentRover: "none",
+});
 
 const root = document.getElementById("root");
 
-const updateStore = (store, newState) => {
-  store = Object.assign(store, newState);
+const updateStore = (state, newState) => {
+  store = state.merge(newState);
   render(root, store);
 };
 
