@@ -22,17 +22,18 @@ const App = (state) => {
             <header>
                 <div class="navbar-flex">
                     <div class="logo-flex" onclick="handleHome(event)">
-                        <p>Mars Dashboard</p>
+                        <p>Mars</p>
                     </div>
                 </div>
-            </header>
-
+            </header>   
                 <div class="wrapper-buttons">
-                    <h1 class="main-title">Choose your rover</h1>		
+                    <h1 class="main-title">Choose &nbsp; your &nbsp; Mars &nbsp; Rovers</h1>		
                     <div class="button-container">${renderMenu(state)}</div>
                 </div>
             </div>
             <footer>
+                <div class="credits">Official &nbsp; NASA &nbsp; photos &nbsp; from &nbsp; <a href="https://images.nasa.gov/" title="Nasa">www.nasa.gov</a>
+                </div>
             <footer>
         `;
   } else {
@@ -40,18 +41,21 @@ const App = (state) => {
         <header>
             <div class="navbar-flex">
                 <div class="logo-flex" onclick="handleHome(event)">
-                    <p>Mars Dashboard</p>
+                    <p>Mars</p>
                  </div>
                  <ul class="items-navbar">${renderMenuItems(state)}<ul>
             </div>
         </header>
             <div class="container-info">
-                <h1 class="title">Choose your rover <span>${
+                <h1 class="title">Facts &nbsp; about &nbsp; <span>${
                   state.get("currentRover").latest_photos[0].rover.name
                 }</span></h1>		
                 <div class="gallery">${renderImages(state)}</div>
             </div>
             <footer>
+            <div class="credits">Official &nbsp; NASA &nbsp; photos &nbsp; from &nbsp; <a href="https://images.nasa.gov/" title="Nasa">www.nasa.gov</a>
+            </div>
+                </div>
             <footer>
         `;
   }
