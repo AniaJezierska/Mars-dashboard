@@ -66,6 +66,51 @@ window.addEventListener("load", () => {
 });
 
 // ------------------------------------------------------  COMPONENTS   ------------------------------------------------------
+const renderMenu = (state) => {
+  return `<ul class="flex">${renderButtonState(state)}</ul>`;
+};
+
+const renderButtonState = (state) => {
+  return Array.from(state.get("rovers"))
+    .map(
+      (item) =>
+        `<li id=${item} class="flex-item btn" onclick="handleClick(event)">
+            <a ref="#"  class=""  >${capitalize(`${item}`)}</a>
+        </li>`
+    )
+    .join("");
+};
+
+const renderMenuItems = (state) => {
+  return Array.from(state.get("rovers"))
+    .map(
+      (item) =>
+        `<li id=${item} class="" onclick="handleClick(event)">
+            <a ref="#"  class=""  >${capitalize(`${item}`)}</a>
+        </li>`
+    )
+    .join("");
+};
+
+const renderImages = (state) => {
+  const base = state.get("currentRover");
+  return Array.from(base.latest_photos)
+    .map(
+      (item) =>
+        `<div class="wrapper">
+            <img src="${item.img_src}" />
+            <div class="wrapper-info">
+                <p><span>Image date:</span> ${item.earth_date}</p>
+                <p><span>Rover:</span> ${item.rover.name}</p>
+                <p><span>State of the rover:</span> ${item.rover.status}</p>
+                <p><span>Launch date:</span> ${item.rover.launch_date}</p>
+                <p><span>Landing date:</span> ${item.rover.landing_date}</p>
+            </div>
+         </div>`
+    )
+    .slice(0, 50)
+    .join("");
+};
 
 // ------------------------------------------------------  HANDLE CLICK   ------------------------------------------------------
 
