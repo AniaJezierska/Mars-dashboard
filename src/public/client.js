@@ -114,6 +114,20 @@ const renderImages = (state) => {
 
 // ------------------------------------------------------  HANDLE CLICK   ------------------------------------------------------
 
+const handleClick = (event) => {
+  const { id } = event.currentTarget;
+  if (Array.from(store.get("rovers")).includes(id)) {
+    getRoverImages(id, store);
+  } else {
+    console.log(`ups!!! is not included`);
+  }
+};
+
+const handleHome = (event) => {
+  const newState = store.set("currentRover", "none");
+  updateStore(store, newState);
+};
+
 // ------------------------------------------------------  UTILITY   ------------------------------------------------------
 
 // ------------------------------------------------------  API CALLS   ------------------------------------------------------
