@@ -25,7 +25,9 @@ const App = (state) => {
                         <p>Mars</p>
                     </div>
                 </div>
-            </header>   
+            </header>
+            
+   
                 <div class="wrapper-buttons">
                     <h1 class="main-title">Choose &nbsp; your &nbsp; Mars &nbsp; Rovers</h1>		
                     <div class="button-container">${renderMenu(state)}</div>
@@ -66,6 +68,7 @@ window.addEventListener("load", () => {
 });
 
 // ------------------------------------------------------  COMPONENTS   ------------------------------------------------------
+
 const renderMenu = (state) => {
   return `<ul class="flex">${renderButtonState(state)}</ul>`;
 };
@@ -94,6 +97,8 @@ const renderMenuItems = (state) => {
 
 const renderImages = (state) => {
   const base = state.get("currentRover");
+
+  // with join method returns an array without commas
   return Array.from(base.latest_photos)
     .map(
       (item) =>
@@ -130,4 +135,18 @@ const handleHome = (event) => {
 
 // ------------------------------------------------------  UTILITY   ------------------------------------------------------
 
+const capitalize = (word) => {
+  return `${word[0].toUpperCase()}${word.slice(1)}`;
+};
+
 // ------------------------------------------------------  API CALLS   ------------------------------------------------------
+
+const getRoverImages = async (roverName, state) => {
+  let { currentRover } = state;
+  const response = await fetch(`http://localhost:3000/rovers/${roverName}`);
+  currentRover = await response.json();
+
+  const newState = store.set("currentRover", currentRover);
+  updateStore(store, newState);
+  return currentRover;
+};
